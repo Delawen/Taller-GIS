@@ -20,6 +20,44 @@
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
+
+
+<div style="position: absolute;
+    bottom: 50px;
+    left: 50px;">
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: '#tallergis',
+  interval: 30000,
+  title: 'Taller GIS',
+  subject: '#tallergis' ,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#8ec1da',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>
+
+</div>
+
 <div id="impress">
 
 
