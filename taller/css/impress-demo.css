@@ -246,3 +246,19 @@ li {
     display: block;
 }
 
+
+div.olMap {
+  height: 300px;
+  font-size:14px;
+}
+
+
+div.olControlAttribution {
+        font-size: 10px;
+        bottom: 5px;
+        right: 5px;
+    }
+
+.code {
+  font-size: 18px;
+}
