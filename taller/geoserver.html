@@ -41,8 +41,8 @@ new TWTR.Widget({
   height: 200,
   theme: {
     shell: {
-      background: '#FF4A09',
-      color: '#ffffff'
+      background: '#E2E2CA',
+      color: '#000000'
     },
     tweets: {
       background: '#ffffff',
@@ -100,6 +100,9 @@ new TWTR.Widget({
     <div class="step " data-x="-2500" data-y="1500">
         <h2>Qué es GeoServer</h2>
         <center><img src="images/geoserver-que_es.png"/></center>
+        <p>"GeoServer is a Java-based software server that allows users to view and edit geospatial data. 
+          Using open standards set forth by the Open Geospatial Consortium (OGC), GeoServer allows for great 
+          flexibility in map creation and data sharing."</p>
     </div>
 
 
@@ -117,7 +120,7 @@ new TWTR.Widget({
     <div class="step" data-x="0" data-y="3000">
         <h2>Instalación</h2>
         <p>Sobre el contenedor Tomcat, soltar el 
-<a href="http://sourceforge.net/projects/geoserver/files/GeoServer/2.1.3/geoserver-2.1.3-war.zip/download">WAR</a></p>
+        <a href="http://sourceforge.net/projects/geoserver/files/GeoServer/2.2-beta1/geoserver-2.2-beta1-war.zip/download">WAR</a></p>
         <center><img src="images/tomcat.png"/></center>
         <p>sudo apt-get install tomcat7</p>
         <p>sudo mv geoserver.war /var/lib/tomcat7/webapps</p>
@@ -134,7 +137,6 @@ new TWTR.Widget({
         <p> * JAI (aceleraciones nativas) *  - Opcional </p>
     </div>
 
-
     <div class="step" data-x="0" data-y="0">
         <ul>
           <li>&nbsp;</li>
@@ -149,7 +151,7 @@ new TWTR.Widget({
     <div class="step" data-x="1500" data-y="1500">
         <h2>Gestionar Capas</h2>
         <p>La administración de GeoServer va por interfaz web.</p>
-        <a target="geoserver" href="http://gofre:8080/geoserver"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver"><center>
           <img src="http://docs.geoserver.org/stable/en/user/_images/web-admin.png"/></center>
         </a>
     </div>
@@ -181,7 +183,7 @@ new TWTR.Widget({
 
     <div class="step" data-x="3000" data-y="1500">
         <p>En GeoServer, las capas se clasifican en espacios de trabajo.</p>
-        <a target="geoserver" href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.workspace.WorkspacePage"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.workspace.WorkspacePage"><center>
           <img src="images/geoserver.png"/></center>
         </a>
         <p>Un espacio de trabajo no es más que un contenedor de capas.</p>
@@ -191,7 +193,7 @@ new TWTR.Widget({
     <div class="step" data-x="4500" data-y="1500">
         <p>La información de las capas sale de los almacenes de datos (store).</p>
         <center><img style="max-height:35%" src="images/geoserver2.png"/></center>
-        <a target="geoserver" href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.store.NewDataPage"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.store.NewDataPage"><center>
           <img style="max-height:35%" src="images/geoserver3.png"/></center>
         </a>
         <p>Por ejemplo podemos meter alguna del <a href="http://www.idee.es/show.do?to=pideep_desarrollador_wms.ES#Cartociudad">IDEE</a>.</p>
@@ -199,14 +201,14 @@ new TWTR.Widget({
 
     <div class="step" data-x="4500" data-y="3000">
         <p>Configuramos cómo se conectará GeoServer al orígen de datos.</p>
-        <a target="geoserver" href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.store.WMSStoreNewPage"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.store.WMSStoreNewPage"><center>
           <img style="max-height:65%" src="images/geoserver5.png"/></center>
         </a>
     </div>
 
     <div class="step" data-x="6000" data-y="1500" data-scale="3">
         <p>Una vez configurado el orígen de los datos, podemos crear una capa nueva.</p>
-        <a target="geoserver" href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.layer.LayerPage"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.data.layer.LayerPage"><center>
           <img style="max-height:35%" src="images/geoserver4.png"/></center>
         </a>
         <p>que nos redirigirá automáticamente a la opción de "Nueva Capa".</p>
@@ -247,7 +249,7 @@ new TWTR.Widget({
 
     <div class="step" data-x="-7000" data-y="2000" data-rotation-z="-45" data-scale="1">
         <p>Dado que son varios ficheros, mejor cargar el 
-          <a href="http://gofre:8080/geoserver/web/?wicket:interface=:16::::">el directorio entero</a>.</p>
+          <a href="http://localhost:8080/geoserver/web/?wicket:interface=:16::::">el directorio entero</a>.</p>
         <p>Ya tenemos el almacén de capas, pero no está publicado en ningún sitio.</p>
         <p>Para publicar una capa WMS tendremos que definir primero un estilo 
           (<a href="http://www.opengeospatial.org/standards/sld">SLD</a>).</p>
@@ -255,7 +257,7 @@ new TWTR.Widget({
 
     <div class="step" data-x="-6000" data-y="2000" data-rotation-z="-45" data-scale="1">
         <p>GeoServer nos proporciona un 
-          <a href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.wms.web.data.StyleNewPage">editor de estilos</a>.</p>
+          <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.wms.web.data.StyleNewPage">editor de estilos</a>.</p>
     </div>
 
     <div class="step" data-x="-6000" data-y="1500" data-rotation-z="-45" data-scale="1">
@@ -307,7 +309,7 @@ new TWTR.Widget({
     <div class="step" data-x="1500" data-y="-4500" data-scale="6">
         <h2>GeoWebCache</h2>
         <p>Es una librería independiente de GeoServer.</p>
-        <a target="geoserver" href="http://gofre:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.gwc.web.GWCSettingsPage"><center>
+        <a target="geoserver" href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.gwc.web.GWCSettingsPage"><center>
           <img src="images/geoserver1.png" style="max-height:60%"/></center>
         </a>
         <p>Permite acelerar GeoServer mediante el cacheo de tiles.</p>
@@ -336,8 +338,37 @@ new TWTR.Widget({
           <li>Configuración</li>
         </ul>
     </div>
-    <div class="step" data-x="-1000" data-y="-7000" data-scale="3">
+    <div class="step" data-x="-1000" data-y="-7000">
         <h2>Seguridad</h2>
+        <p>Como todo framework decente, trae usuarios y roles.</p>
+        <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.auth.AuthenticationPage">
+        <img src="images/geoserver6.png"/>
+        </a>
+    </div>
+
+    <div class="step" data-x="-2500" data-y="-7000">
+        <p>Podemos guardar los usuarios en un LDAP, en una base de datos,...</p>
+        <p>Elegir el tipo de encriptación de las contraseñas, la dificultad de las mismas,...</p>
+        <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.passwd.PasswordPage">
+        <img src="images/geoserver7.png"/>
+        </a>
+    </div>
+
+    <div class="step" data-x="-4000" data-y="-7000">
+        <p>Podemos crear usuarios y roles de forma sencilla:</p>
+        <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.UserGroupRoleServicesPage">
+        <img src="images/geoserver8.png"/>
+        </a>
+    </div>
+
+    <div class="step" data-x="-5700" data-y="-7000">
+        <p>Las restricciones de acceso van a nivel de Servicio o de capa, pero no son combinables.</p>
+        <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.service.ServiceAccessRulePage">
+        <img src="images/geoserver9.png"/>
+        </a>
+        <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.data.DataSecurityPage">
+        <img src="images/geoserver10.png"/>
+        </a>
     </div>
 
     <div class="step" data-x="0" data-y="0">
