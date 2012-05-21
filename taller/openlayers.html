@@ -330,64 +330,122 @@ new TWTR.Widget({
 
     <div class="step" data-x="4000" data-y="0">
         <h2>Controles</h2>
-	<p>Son clases de OpenLayers que afectan al estado del mapa o muestran cierta información al usuario</p>
+        <p>Los <a href="http://dev.openlayers.org/docs/files/OpenLayers/Control-js.html">controles</a>
+          son las herramientas para manejar el mapa.</p>
+        <p>map.addControl($control); </p>
+        <p>Controles por defecto:</p>
+        <p><a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Navigation-js.html">Navigation</a></p>
+        <p><a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/PanZoom-js.html">PanZoom</a></p>
+        <p><a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Attribution-js.html">Attribution</a></p>
     </div>
 
-    <div class="step" data-x="8000" data-y="-2000">
-	<h3><a href="http://openlayers.org/dev/examples/navigation-history.html">Navigation History</a></h3>
-	<pre class="code"><span class="cp"><span class="nt">var map, nav, panel;</span>
-	<span class="nt"></span>
-	<span class="nt">            function init() {</span>
-	<span class="nt">                map = new OpenLayers.Map('map');</span>
-	<span class="nt"></span>
-	<span class="nt">                nav = new OpenLayers.Control.NavigationHistory();</span>
-	<span class="nt">                // parent control must be added to the map</span>
-	<span class="nt">                map.addControl(nav);</span>
-	<span class="nt"></span>
-	<span class="nt">                panel = new OpenLayers.Control.Panel(</span>
-	<span class="nt">                    {div: document.getElementById("panel")}</span>
-	<span class="nt">                );</span>
-	<span class="nt">                panel.addControls([nav.next, nav.previous]);</span>
-	<span class="nt">                map.addControl(panel);</span>
-	<span class="nt">                </span>
-	<span class="nt">                var layer = new OpenLayers.Layer.WMS(</span>
-	<span class="nt">                    "OpenLayers WMS",</span>
-	<span class="nt">                    "http://vmap0.tiles.osgeo.org/wms/vmap0",</span>
-	<span class="nt">                    {layers: 'basic'}</span>
-	<span class="nt">                );</span>
-	<span class="nt">                map.addLayer(layer);</span>
-	<span class="nt">                map.zoomToMaxExtent();</span>
-	<span class="nt">            }</span></span>
-	</pre>
+    <div class="step" data-x="4000" data-y="1500">
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/LayerSwitcher-js.html">
+        LayerSwitcher</a>());</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/PanZoomBar-js.html">
+        PanZoomBar</a>());</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Permalink-js.html">
+        Permalink</a>());</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/ScaleLine-js.html">
+        ScaleLine</a>());</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Scale-js.html">
+        Scale</a>());</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/OverviewMap-js.html">
+        OverviewMap()</a>);</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/PanPanel-js.html">
+        PanPanel()</a>);</p>
     </div>
 
-    <div class="step" data-x="-8000" data-y="2000">
-	<h3><a href="http://openlayers.org/dev/examples/controls.html">Más controles</a></h3>
-	<pre class="code"><span class="cp"><span class="nt">var map;</span>
-	<span class="nt">            function init(){</span>
-	<span class="nt">                map = new OpenLayers.Map('map', {</span>
-	<span class="nt">                    controls: [</span>
-	<span class="nt">                        new OpenLayers.Control.Navigation(), new OpenLayers.Control.PanZoomBar(),</span>
-	<span class="nt">                        new OpenLayers.Control.LayerSwitcher({'ascending':false}), new OpenLayers.Control.Permalink(),</span>
-	<span class="nt">                        new OpenLayers.Control.ScaleLine(), new OpenLayers.Control.Permalink('permalink'), new OpenLayers.Control.MousePosition(),</span>
-	<span class="nt">                        new OpenLayers.Control.OverviewMap(), new OpenLayers.Control.KeyboardDefaults()</span>
-	<span class="nt">                    ],</span>
-	<span class="nt">                    numZoomLevels: 6</span>
-	<span class="nt">                    </span>
-	<span class="nt">                });</span>
-	<span class="nt"></span>
-	<span class="nt">                var ol_wms = new OpenLayers.Layer.WMS("OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'});</span>
-	<span class="nt"></span>
-	<span class="nt">                var gwc = new OpenLayers.Layer.WMS("Global Imagery","http://maps.opengeo.org/geowebcache/service/wms", {layers: "bluemarble"},{tileOrigin: new OpenLayers.LonLat(-180, -90)});</span>
-	<span class="nt"></span>
-	<span class="nt">                map.addLayers([ol_wms, gwc, dm_wms]);</span>
-	<span class="nt"></span>
-	<span class="nt">                if (!map.getCenter()) {</span>
-	<span class="nt">                    map.zoomToMaxExtent();</span>
-	<span class="nt">                }</span>
-	<span class="nt">            }</span></span></pre>
+    <div class="step" data-x="4000" data-y="4500">
+        <p>O un control más complejo:</p>
+        <p>nav = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/NavigationHistory-js.html">NavigationHistory</a>();</p>
+        <p>// parent control must be added to the map</p>
+        <p>map.addControl(nav);</p>
+        <p>panel = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Panel-js.html">Panel</a>(</p>
+        <p>{div: document.getElementById("panel")}</p>
+        <p>);</p>
+        <p>panel.addControls([nav.next, nav.previous]);</p>
+        <p>map.addControl(panel);</p>
     </div>
 
+
+    <div class="step" data-x="4000" data-y="3000">
+        <p>Los controles también permiten personalización mediante una serie de propiedades.</p>
+        <p>map.addControl(new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/MousePosition-js.html">
+        MousePosition</a>({</p>
+        <p>div:  document.getElementById("toolbar")}));</p>
+    </div>
+
+    <div class="step" data-x="5500" data-y="3000">
+        <p>Existen controles más complejos.</p>
+        <p>Por ejemplo los de edición de capas vectoriales.</p>
+        <p>vectors = new OpenLayers.Layer.Vector("Vector Layer");</p>
+        <p>map.addLayer(vectors);</p>
+        <p>control = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/DrawFeature-js.html">
+        DrawFeature</a>(vectors, OpenLayers.Handler.Point);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+    </div>
+
+
+    <div class="step" data-x="7000" data-y="2000">
+        <p>control.deactivate();</p>
+        <p>control = new OpenLayers.Control.DrawFeature(vectors, OpenLayers.Handler.Path);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+        <p>&nbsp;</p>
+        <p>control.deactivate();</p>
+        <p>control = new OpenLayers.Control.DrawFeature(vectors, OpenLayers.Handler.Polygon);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+    </div>
+
+    <div class="step" data-x="7000" data-y="4000">
+        <p>Editing Toolbar lo trae todo a la vez:</p>
+        <p>control.deactivate();</p>
+        <p>control = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/EditingToolbar-js.html">
+        EditingToolbar</a>(vectors);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+    </div>
+
+
+    <div class="step" data-x="5000" data-y="5000">
+        <p>También podemos querer mover las features.</p>
+        <p>control.deactivate();</p>
+        <p>control = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/DragFeature-js.html">
+        DragFeature</a>(vectors);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+    </div>
+
+
+    <div class="step" data-x="3000" data-y="5000">
+        <p>O quizás editarlas:</p>
+        <p>control.deactivate();</p>
+        <p>control = new OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/ModifyFeature-js.html">
+        ModifyFeature</a>(vectors);</p>
+        <p>map.addControl(control);</p>
+        <p>control.activate();</p>
+    </div>
+
+    <div class="step" data-x="1000" data-y="5000">
+        <p>Mención especial para OpenLayers.Control.<a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/SelectFeature-js.html">
+        SelectFeature</a></p>
+        <p>Lanza eventos según las features son seleccionadas o señaladas.</p>
+        <p>Permite realizar controles más complejos.</p>
+        <p>Por ejemplo, podríamos hacer un control DeleteFeature.</p>
+    </div>
+
+
+    <div class="step" data-x="1000" data-y="7000">
+        <p>No vamos a ver <a href="http://docs.openlayers.org/library/feature_styling.html">estilos</a>.</p>
+        <p>vectors.features[3].style = {</p>
+        <p>'strokeWidth': 5,</p>
+        <p>'strokeColor': '#00ff00'</p>
+        <p>};</p>
+        <p>map.zoomIn();</p>
+    </div>
 
     <div class="step" data-x="0" data-y="0">
         <ul>
@@ -399,9 +457,43 @@ new TWTR.Widget({
         </ul>
     </div>
 
-    <div class="step" data-x="-5000" data-y="-1500" data-rotate-z="45">
+    <div class="step" data-x="-5000" data-y="-3000" data-rotate-z="-25">
+        <p>Se puede empezar por ejemplo con un simple 
+          <a href="http://dev.openlayers.org/docs/files/OpenLayers/Control/Button-js.html">botón</a></p>
+        <p>var button = new OpenLayers.Control.Button({displayClass: "MyButton", trigger: myFunction});</p>
+        <p>Que se coloca dentro de un panel.</p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="-5000">
+        <p>Pero mejor vamos a un ejemplo más complejo.</p>
+        <p>Todos los controles heredan de la clase <a href="http://dev.openlayers.org/docs/files/OpenLayers/Control-js.html">Control</a>.</p>
+        <p><strong>type</strong>: Button/Toggle/Tool</p>
+        <p><strong>activate/deactivate</strong></p>
+        <p><strong>setMap</strong></p>
+        <p>Pero no suele desarrollarse directamente sobre esta clase.</p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="-7000">
+        <p>var control = new OpenLayers.SelectFeature();</p>
+        <p>OpenLayers.Util.extend(control, {</p>
+        <p>draw: function () {</p>
+        <p>this.box = new OpenLayers.Handler.Box( control,</p>
+        <p>{"done": this.notice},</p>
+        <p>{keyMask: OpenLayers.Handler.MOD_SHIFT});</p>
+        <p>this.box.activate();</p>
+        <p>},</p>
+        <p>notice: function (bounds) {</p>
+        <p>OpenLayers.Console.userError(bounds);</p>
+        <p>}});</p>
+        <p>map.addControl(control);</p>
+   </div>
+
+    <div class="step" data-x="5000" data-y="-1500" data-rotate-z="45">
         <h2>Para saber más</h2>
         <p>Echarle un vistazo a los <a href="http://openlayers.org/dev/examples/">ejemplos</a>.</p>
+        <p><a href="http://workshops.opengeo.org/openlayers-intro">Workshop</a> de OpenGeo</p>
+        <p>Visitar <a href="http://openlayers.ingemoral.es/manualOpenLayers.html">este tutorial</a> en Español</p>
+        <p>Puedes jugar con <a href="http://mapquery.org/">Mapquery</a> o <a href="http://www.geoext.org/">GeoExt</a></p>
     </div>
 
 </div>
