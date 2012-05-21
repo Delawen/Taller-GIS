@@ -484,23 +484,63 @@ new TWTR.Widget({
         <p><strong>No</strong> suele desarrollarse directamente sobre esta clase.</p>
    </div>
 
-    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="65">
+    <div class="step" data-x="-5000" data-y="-10000" data-rotate-z="0">
         <p>Un concepto importante es la <strong>capa en la que actua el control.</strong></p>
    </div>
 
-    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="-65">
-	<p>Por ejemplo, en el caso de select feature existe la función 
-          <a href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/SelectFeature-js.html#OpenLayers.Control.SelectFeature.setLayer">setLayer</a>, además de necesitar una capa con la que inicializarlo:</p>
-        <p>new OpenLayers.Control.SelectFeature(vlayer,
-                    {...}
-                );</p>
+    <div class="step" data-x="-5000" data-y="-10000" data-rotate-z="50">
+	<p>En el caso del control <strong>select feature</strong> existe la función 
+          <a href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/SelectFeature-js.html#OpenLayers.Control.SelectFeature.setLayer">setLayer</a>.</p> 
    </div>
 
-    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="75">
-        <p><a href="./examples/select_features.html">Aquí</a> puedes ver un ejemplo con una o dos capas.</p>
+    <div class="step" data-x="-5000" data-y="-10000" data-rotate-z="-50">
+	<p>Además necesita este parámetro para  inicializarlo:</p>
    </div>
 
-    <div class="step" data-x="5000" data-y="-1500" data-rotate-z="45">
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="0">
+        <p><strong>select1</strong> = new OpenLayers.Control.SelectFeature(</p>
+           <p>         <strong>vlayer</strong>,</p>
+           <p>         {</p>
+           <p>             clickout: false, toggle: false,</p>
+           <p>             multiple: false, hover: false,</p>
+           <p>             toggleKey: "ctrlKey", // ctrl key removes from selection</p>
+           <p>             multipleKey: "shiftKey", // shift key adds to selection</p>
+           <p>             box: true</p>
+           <p>         }</p>
+           <p>     );;</p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="50">
+        <p><strong>select2</strong> = new OpenLayers.Control.SelectFeature(</p>
+           <p>         <strong>vlayer2</strong>,</p>
+           <p>         {</p>
+           <p>             clickout: false, toggle: false,</p>
+           <p>             multiple: false, hover: false,</p>
+           <p>             toggleKey: "ctrlKey", // ctrl key removes from selection</p>
+           <p>             multipleKey: "shiftKey", // shift key adds to selection</p>
+           <p>             box: true</p>
+           <p>         }</p>
+           <p>     );;</p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="-50">
+        <p><strong>select3</strong> = new OpenLayers.Control.SelectFeature(</p>
+           <p>         <strong>[vlayer, vlayer2]</strong>,</p>
+           <p>         {</p>
+           <p>             clickout: false, toggle: false,</p>
+           <p>             multiple: false, hover: false,</p>
+           <p>             toggleKey: "ctrlKey", // ctrl key removes from selection</p>
+           <p>             multipleKey: "shiftKey", // shift key adds to selection</p>
+           <p>             box: true</p>
+           <p>         }</p>
+           <p>     );;</p>
+   </div>
+
+    <div class="step" data-x="5000" data-y="10000" data-rotate-z="-75">
+        <p><a href="./examples/select_features.html">Aquí</a> puedes ver el ejemplo completo.</p>
+   </div>
+
+    <div class="step" data-x="5000" data-y="-1500" data-rotate-z="50">
         <h2>Para saber más</h2>
         <p>Echarle un vistazo a los <a href="http://openlayers.org/dev/examples/">ejemplos</a>.</p>
         <p><a href="http://workshops.opengeo.org/openlayers-intro">Workshop</a> de OpenGeo</p>
