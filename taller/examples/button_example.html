@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Simple Button example</title>
+    <link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="http://openlayers.org/dev/examples/style.css" type="text/css">
+    <link rel="stylesheet" href="./button_example.css" type="text/css">
+    <script src="http://openlayers.org/dev/OpenLayers.js"></script>
+    <script src="./button_example.js"></script>
+  </head>
+  <body onload="init()">
+    <h1 id="title">Simple Button Example</h1>
+    <div id="tags">
+        button
+    </div>
+    <p id="shortdesc">
+      Adds a button to the map
+    </p>  
+    <div id="panel"></div>
+    <div id="map" class="smallmap"></div>
+
+    <div id="docs">
+      <p>Simple button: </p>
+      <p><ul>
+      	<li><a onclick="button.activate();" class="button">Activate the button</a></li>
+	<li><a onclick="button.deactivate();"  class="button">Deactivate the button</a></li>
+      </ul></p><p></p>
+      <p>Only shows the zoom level, do zoomin when is activated and restore zoom when is deactivate:</p>
+      <p><code>
+	activate: function(){
+		alert ('Active!!\nThe map has ' +map.zoom + ' zoom level');
+		map.setCenter(new OpenLayers.LonLat(lon, lat), map.zoom + 1);
+	},
+	deactivate: function(){
+		alert('Do the zoom to '+zoom+ ' level!');
+		map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+	}</code></p>
+
+    </div>
+
+  </body>
+</html>
+

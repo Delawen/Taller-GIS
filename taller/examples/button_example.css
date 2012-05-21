@@ -1,0 +1,23 @@
+	a.button{
+		cursor:pointer;
+		color: white;
+		background-color:black;
+		border: 1px solid black;
+	}
+	a.button:hover{
+		cursor:pointer;
+		color: black;
+		background-color:white;
+		border: 1px solid white;
+	}
+	.ButtonExample{
+		top: 8px;
+		left: 8px;
+		background: 
+		rgba(255, 255, 255, 0.4);
+		border-radius: 4px;
+		width: 50px;
+		height: 50px;
+		padding: 2px;
+		cursor:pointer;
+	}
