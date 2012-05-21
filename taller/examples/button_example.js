@@ -15,7 +15,7 @@ function init() {
     
     button = new OpenLayers.Control();
     OpenLayers.Util.extend(button, {
-        type: 'button',
+	text: 'Test',
 	activate: function(){
 		alert ('Active!!\nThe map has ' +map.zoom + ' zoom level');
 		map.setCenter(new OpenLayers.LonLat(lon, lat), map.zoom + 1);
@@ -28,6 +28,25 @@ function init() {
 
     // parent control must be added to the map
     map.addControl(button);
+    var panel = new OpenLayers.Control.Panel({
+        defaultControl: button,
+        createControlMarkup: function(control) {
+            var button = document.createElement('button'),
+                iconSpan = document.createElement('span'),
+                textSpan = document.createElement('span');
+            iconSpan.innerHTML = '&nbsp;';
+            button.appendChild(iconSpan);
+            if (control.text) {
+                textSpan.innerHTML = control.text;
+            }
+            button.appendChild(textSpan);
+            return button;
+        }
+    });
+    panel.addControls([
+        button
+    ]);
+    map.addControl(panel);
 
     map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
 }

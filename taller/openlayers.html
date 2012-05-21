@@ -475,28 +475,29 @@ new TWTR.Widget({
 	<p><a href="./examples/button_example.html">Ejemplo sencillo</a></p>
    </div>
 
-    <div class="step" data-x="-5000" data-y="-5000">
-        <p>Pero mejor vamos a un ejemplo más complejo.</p>
+    <div class="step" data-x="-5000" data-y="-5000" data-rotate-z="0">
+        <p>Vamos con un ejemplo un poco más complejo.</p>
         <p>Todos los controles heredan de la clase <a href="http://dev.openlayers.org/docs/files/OpenLayers/Control-js.html">Control</a>.</p>
         <p><strong>type</strong>: Button/Toggle/Tool</p>
         <p><strong>activate/deactivate</strong></p>
         <p><strong>setMap</strong></p>
-        <p>Pero no suele desarrollarse directamente sobre esta clase.</p>
+        <p><strong>No</strong> suele desarrollarse directamente sobre esta clase.</p>
    </div>
 
-    <div class="step" data-x="-5000" data-y="-7000">
-        <p>var control = new OpenLayers.SelectFeature();</p>
-        <p>OpenLayers.Util.extend(control, {</p>
-        <p>draw: function () {</p>
-        <p>this.box = new OpenLayers.Handler.Box( control,</p>
-        <p>{"done": this.notice},</p>
-        <p>{keyMask: OpenLayers.Handler.MOD_SHIFT});</p>
-        <p>this.box.activate();</p>
-        <p>},</p>
-        <p>notice: function (bounds) {</p>
-        <p>OpenLayers.Console.userError(bounds);</p>
-        <p>}});</p>
-        <p>map.addControl(control);</p>
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="65">
+        <p>Un concepto importante es la <strong>capa en la que actua el control.</strong></p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="-65">
+	<p>Por ejemplo, en el caso de select feature existe la función 
+          <a href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/SelectFeature-js.html#OpenLayers.Control.SelectFeature.setLayer">setLayer</a>, además de necesitar una capa con la que inicializarlo:</p>
+        <p>new OpenLayers.Control.SelectFeature(vlayer,
+                    {...}
+                );</p>
+   </div>
+
+    <div class="step" data-x="-5000" data-y="10000" data-rotate-z="75">
+        <p><a href="./examples/select_features.html">Aquí</a> puedes ver un ejemplo con una o dos capas.</p>
    </div>
 
     <div class="step" data-x="5000" data-y="-1500" data-rotate-z="45">
