@@ -328,10 +328,64 @@ new TWTR.Widget({
         </ul>
     </div>
 
-
     <div class="step" data-x="4000" data-y="0">
         <h2>Controles</h2>
-        <p>//TODO</p>
+	<p>Son clases de OpenLayers que afectan al estado del mapa o muestran cierta información al usuario</p>
+    </div>
+
+    <div class="step" data-x="8000" data-y="-2000">
+	<h3><a href="http://openlayers.org/dev/examples/navigation-history.html">Navigation History</a></h3>
+	<pre class="code"><span class="cp"><span class="nt">var map, nav, panel;</span>
+	<span class="nt"></span>
+	<span class="nt">            function init() {</span>
+	<span class="nt">                map = new OpenLayers.Map('map');</span>
+	<span class="nt"></span>
+	<span class="nt">                nav = new OpenLayers.Control.NavigationHistory();</span>
+	<span class="nt">                // parent control must be added to the map</span>
+	<span class="nt">                map.addControl(nav);</span>
+	<span class="nt"></span>
+	<span class="nt">                panel = new OpenLayers.Control.Panel(</span>
+	<span class="nt">                    {div: document.getElementById("panel")}</span>
+	<span class="nt">                );</span>
+	<span class="nt">                panel.addControls([nav.next, nav.previous]);</span>
+	<span class="nt">                map.addControl(panel);</span>
+	<span class="nt">                </span>
+	<span class="nt">                var layer = new OpenLayers.Layer.WMS(</span>
+	<span class="nt">                    "OpenLayers WMS",</span>
+	<span class="nt">                    "http://vmap0.tiles.osgeo.org/wms/vmap0",</span>
+	<span class="nt">                    {layers: 'basic'}</span>
+	<span class="nt">                );</span>
+	<span class="nt">                map.addLayer(layer);</span>
+	<span class="nt">                map.zoomToMaxExtent();</span>
+	<span class="nt">            }</span></span>
+	</pre>
+    </div>
+
+    <div class="step" data-x="-8000" data-y="2000">
+	<h3><a href="http://openlayers.org/dev/examples/controls.html">Más controles</a></h3>
+	<pre class="code"><span class="cp"><span class="nt">var map;</span>
+	<span class="nt">            function init(){</span>
+	<span class="nt">                map = new OpenLayers.Map('map', {</span>
+	<span class="nt">                    controls: [</span>
+	<span class="nt">                        new OpenLayers.Control.Navigation(), new OpenLayers.Control.PanZoomBar(),</span>
+	<span class="nt">                        new OpenLayers.Control.LayerSwitcher({'ascending':false}), new OpenLayers.Control.Permalink(),</span>
+	<span class="nt">                        new OpenLayers.Control.ScaleLine(), new OpenLayers.Control.Permalink('permalink'), new OpenLayers.Control.MousePosition(),</span>
+	<span class="nt">                        new OpenLayers.Control.OverviewMap(), new OpenLayers.Control.KeyboardDefaults()</span>
+	<span class="nt">                    ],</span>
+	<span class="nt">                    numZoomLevels: 6</span>
+	<span class="nt">                    </span>
+	<span class="nt">                });</span>
+	<span class="nt"></span>
+	<span class="nt">                var ol_wms = new OpenLayers.Layer.WMS("OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'});</span>
+	<span class="nt"></span>
+	<span class="nt">                var gwc = new OpenLayers.Layer.WMS("Global Imagery","http://maps.opengeo.org/geowebcache/service/wms", {layers: "bluemarble"},{tileOrigin: new OpenLayers.LonLat(-180, -90)});</span>
+	<span class="nt"></span>
+	<span class="nt">                map.addLayers([ol_wms, gwc, dm_wms]);</span>
+	<span class="nt"></span>
+	<span class="nt">                if (!map.getCenter()) {</span>
+	<span class="nt">                    map.zoomToMaxExtent();</span>
+	<span class="nt">                }</span>
+	<span class="nt">            }</span></span></pre>
     </div>
 
 
