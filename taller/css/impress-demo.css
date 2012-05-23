@@ -142,11 +142,11 @@ body     { pointer-events: none; }
 
 /* fade out inactive slides */
 .step:not(.active) {
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .future {
-  opacity: 0.4;
+  opacity: 0.1;
 }
 
 .past {

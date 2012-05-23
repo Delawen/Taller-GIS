@@ -196,7 +196,7 @@ new TWTR.Widget({
   <div class="step" data-x="-3655" data-y="3090" data-rotate-z="120">
      <p>&nbsp;</p>
      <p>&nbsp;</p>
-     <p>osm2pgsql -U postgres -d db_taller_ barcelona.osm</p>
+     <p>osm2pgsql -U postgres -d db_taller barcelona.osm</p>
      <p>&nbsp;</p>
      <p>&nbsp;</p>
   </div>
@@ -208,10 +208,29 @@ new TWTR.Widget({
     <center><img src="images/postgis.png"/></center>
   </div>
 
+  <div class="step" data-x="6000" data-y="6000">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>CONSTRAINT enforce_dims_my_col CHECK (st_ndims(my_col)=2)</p>
+    <p>&nbsp;</p>
+    <p>CONSTRAINT enforce_geotype_my_col CHECK (geometrytype(my_col) = 'LINESTRING'::text OR my_col IS NULL),</p>
+    <p>&nbsp;</p>
+    <p>CONSTRAINT enforce_srid_my_col CHECK (st_srid(my_col) = 4326)</p>
+  </div>
+
+  <div class="step" data-x="6000" data-y="8000">
+    <p>También podemos meter esas constraint a mano</p>
+    <p>O utilizar <a href="http://www.postgis.org/docs/Populate_Geometry_Columns.html">Populate_Geometry_Columns</a></p>
+    <p>Personalmente no me fío de esta última función</p>
+  </div>
 
   <div class="step" data-x="2000" data-y="0" data-rotate-z="90">
      <p>El tipo geometría tiene sus propios índices, normalmente <a href="http://en.wikipedia.org/wiki/R-tree"> en forma de árbol</a>.</p>
      <center><img src="http://workshops.opengeo.org/postgis-intro/_images/boundingbox.png"/></center>
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/bbox.png"/></center>
   </div>
 
     <div class="step" data-x="0" data-y="0">
@@ -229,6 +248,83 @@ new TWTR.Widget({
      <p>Existen muchas funciones geográficas en PostGIS</p>
   </div>
 
+  <div class="step" data-x="2000" data-y="-4000">
+     <p>ST_MakePoint(Longitude, Latitude)</p>
+     <p>ST_GeomFromText(WellKnownText, srid)</p>
+     <p>ST_SetSRID(geometry, srid)</p>
+     <p>&nbsp;</p>
+     <p>ST_AsText(geometry)</p>
+     <p>ST_AsGeoJSON(geometry)</p>
+     <p>ST_AsGML(geometry)</p>
+  </div>
+
+
+  <div class="step" data-x="2000" data-y="-4000">
+     <p>ST_X(point)</p>
+     <p>ST_Y(point)</p>
+     <p>&nbsp;</p>
+     <p>ST_StartPoint(geometry)</p>
+     <p>ST_EndPoint(geometry)</p>
+  </div>
+
+  <div class="step" data-x="2000" data-y="-6000">
+     <p>Hay muchas formas de ver si dos geometrías son iguales.</p>
+     <p>Puede interesarte una forma más estricta o no según tus necesidades.</p>
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/polygon-table.png"/></center>
+     <p>ST_OrderingEquals: Exactamente iguales</p>
+     <p>ST_Equals: Ocupan el mismo espacio físico</p>
+     <p>=: Ocupan el mismo bounding box</p>
+     <p>&&: Bounding Box que se tocan</p>
+  </div>
+
+  <div class="step" data-x="2000" data-y="-8000">
+     <p>ST_Area(geometry)</p>
+     <p>ST_Length(geometry)</p>
+     <p>ST_NumPoints(linestring)</p>
+     <p>ST_NumGeometries(geometry)</p>
+  </div>
+
+  <div class="step" data-x="12000" data-y="-12000" data-scale="5
+">
+     <p>ST_Distance(geometry, geometry)</p>
+     <p>ST_DWithin(geometry, geometry, radius)</p>
+     <p>ST_Intersects(geometry, geometry)</p>
+     <p>ST_Contains(geometry, geometry)</p>
+     <p>ST_Crosses(geometry, geometry)</p>
+     <p>ST_Disjoint(geometry, geometry)</p>
+     <p>ST_Overlaps(geometry, geometry)</p>
+  </div>
+
+
+  <div class="step" data-x="11500" data-y="-12500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_intersects.png"/></center>
+  </div>
+
+  <div class="step" data-x="12300" data-y="-12500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_disjoint.png"/></center>
+  </div>
+
+  <div class="step" data-x="11500" data-y="-11500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_crosses.png"/></center>
+  </div>
+
+  <div class="step" data-x="12300" data-y="-11500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_overlaps.png"/></center>
+  </div>
+
+  <div class="step" data-x="12800" data-y="-12500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_touches.png"/></center>
+  </div>
+
+  <div class="step" data-x="11500" data-y="-10500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_within.png"/></center>
+  </div>
+
+  <div class="step" data-x="12800" data-y="-10500">
+     <center><img src="http://workshops.opengeo.org/postgis-intro/_images/st_dwithin.png"/></center>
+  </div>
+
+
     <div class="step" data-x="0" data-y="0">
         <ul>
           <li>&nbsp;</li>
@@ -236,6 +332,67 @@ new TWTR.Widget({
           <li>&nbsp;</li>
           <li>Configuración</li>
         </ul>
+    </div>
+
+    <div class="step" data-x="-5000" data-y="-1500" data-rotate-z="45">
+      <p>Lo mismo que se aplica a un postgreSQL.</p>
+      <p>Al menos respecto a parámetros de SO.</p>
+    </div>
+
+    <div class="step" data-x="-5000" data-y="-3000">
+      <p>Es fundamental usar índices espaciales.</p>
+      <p>Si además podemos hacer cluster, mejor.</p>
+      <p>Suelen ser más útiles que los índices sobre otros campos.</p>
+      <p>(en igualdad de condiciones)</p>
+    </div>
+
+
+    <div class="step" data-x="-7000" data-y="-5000">
+      <h2>Shared Buffers</h2>
+      <p>Memoria que comparten los procesos (por ejemplo datos que sacan de una tabla)</p>
+      <p>Recomendado: 75% de la RAM</p>
+      <p style="font-size:30%">NOTE: There is a kernel parameter that needs to be adjusted to allow large values of shared_buffers to work, 
+      since the kernel puts limits on how much shared memory can be allocated (to prevent accidents). 
+      Work out how much memory you're going to allocate to shared_buffers, double it, then echo that value 
+      (in bytes) to /proc/sys/kernel/shmmax and /proc/sys/kernel/shmall, and persist that setting on reboot in /etc/sysctl.conf.</p>
+    </div>
+
+
+    <div class="step" data-x="-7000" data-y="-3000">
+      <h2>Work Mem</h2>
+      <p>Espacio en RAM que usa cada sub-query dentro de la query.</p>
+      <p>En PG >= 9 el EXPLAIN ANALYZE te enseña cuanta memoria va a gastar la query.</p>
+      <p>Recomendado: Para un servidor en producción Memoria Disponible / 2 * max_connections.</p>
+      <p style="font-size:30%">NOTE: Set this value at your own risk and only after significant testing. 
+      Having it too high can have rather unexpected consequences. Setting it to 1 or 2GB, unless you have VERY few 
+      threads, or a TON of memory, is a very, very bad idea.</p>
+      <p style="font-size:30%">So, if you're doing data warehousing, and you're pretty much the only user (or there's only one at a time), 
+      setting it up pretty high is acceptable, but you do need to watch the box and make sure you don't run it out of memory. 
+      Also, make sure you have things configured correctly, if you're using Linux, to prevent the OOM killer from kicking in. Also,
+      as I suggested before, set it to a reasonable level for the 'default' and just up it for specific queries that may benefit from it.</p>
+    </div>
+
+
+    <div class="step" data-x="-9000" data-y="-3000">
+      <h2>Maintenance Work Mem</h2>
+      <p>Work Mem para VACUUM, Index, etc...</p>
+      <p>Recomendado: Memoria Disponible / 8</p>
+    </div>
+
+    <div class="step" data-x="-9000" data-y="-1000">
+      <h2>Wal Buffers</h2>
+      <p>Establece la cantidad de memoria utilizada para escritura anticipada registro (WAL) de datos.</p>
+      <p>Recomendado: Si tu base de datos es estática, no necesitas mucho. Si tu base de datos es muy dinámica, necesitarás más espacio. </p>
+      <p>Mientras que el valor por defecto es a menudo suficiente para la mayoría de los datos, los datos geoespaciales tiende a ser 
+      mucho más grandes. Por lo tanto, se recomienda aumentar el tamaño de este parámetro (1 MB).</p>
+    </div>
+
+    <div class="step" data-x="-9000" data-y="1000">
+      <h2>Effective Cache Size</h2>
+      <p>Espacio de memoria que el query planner usa para cachear.</p>
+      <p>Recomendado: 50/75% Memoria Disponible</p>
+      <p>Mientras que el valor por defecto es a menudo suficiente para la mayoría de los datos, los datos geoespaciales tiende a ser 
+      mucho más grandes. Por lo tanto, se recomienda aumentar el tamaño de este parámetro (1 MB).</p>
     </div>
 
     <div class="step" data-x="5000" data-y="-1500" data-rotate-z="45">
