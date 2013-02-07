@@ -1,0 +1,6 @@
+[submodule "talleres/routing"]
+	path = talleres/routing
+	url = git@github.com:Delawen/Taller-Routing.git
+[submodule "talleres/openlayers-cookbook"]
+	path = talleres/openlayers-cookbook
+	url = https://github.com/Delawen/Cookbook
