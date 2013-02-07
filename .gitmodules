@@ -4,3 +4,6 @@
 [submodule "talleres/openlayers-cookbook"]
 	path = talleres/openlayers-cookbook
 	url = https://github.com/Delawen/Cookbook
+[submodule "talleres/geonetwork"]
+	path = talleres/geonetwork
+	url = git@github.com:Delawen/taller-geonetwork.git
