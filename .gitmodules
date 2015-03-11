@@ -1,9 +1,9 @@
 [submodule "talleres/routing"]
 	path = talleres/routing
-	url = git://github.com/Delawen/Taller-Routing.git
+	url = https://github.com/Delawen/Taller-Routing.git
 [submodule "talleres/openlayers-cookbook"]
 	path = talleres/openlayers-cookbook
-	url = git://github.com/Delawen/Cookbook
+	url = https://github.com/Delawen/Cookbook
 [submodule "talleres/geonetwork"]
 	path = talleres/geonetwork
-	url = git://github.com/Delawen/taller-geonetwork.git
+	url = https://github.com/Delawen/taller-geonetwork.git
